@@ -21,14 +21,15 @@ class Novaprova < Formula
   url "https://github.com/novaprova/novaprova/archive/1.5rc1.tar.gz"
   sha256 "1a526e3e4292978f1a213a7c2b14dc546f86f30da4c3718ba74a488b8572ff0d"
 
-  uses_from_macos "zlib"
-  depends_on "automake"
   depends_on "autoconf2"
+  depends_on "automake"
+  depends_on "binutils"
+  depends_on "doxygen"
+  depends_on "gettext"
+  depends_on "libiberty"
   depends_on "libxml2"
   depends_on "pkg-config"
-  depends_on "binutils"
-  depends_on "gettext"
-  depends_on "doxygen"
+  uses_from_macos "zlib"
 
   def install
     system "automake -ac || echo woopsie"
