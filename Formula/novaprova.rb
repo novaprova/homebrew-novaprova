@@ -21,7 +21,7 @@ class Novaprova < Formula
   url "https://github.com/novaprova/novaprova/archive/1.5rc1.tar.gz"
   sha256 "1a526e3e4292978f1a213a7c2b14dc546f86f30da4c3718ba74a488b8572ff0d"
 
-  depends_on "autoconf2"
+  depends_on "autoconf"
   depends_on "automake"
   depends_on "binutils"
   depends_on "doxygen"
