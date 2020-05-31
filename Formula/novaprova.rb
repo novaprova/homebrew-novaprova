@@ -22,9 +22,16 @@ class Novaprova < Formula
   sha256 "1a526e3e4292978f1a213a7c2b14dc546f86f30da4c3718ba74a488b8572ff0d"
 
   uses_from_macos "zlib"
+  depends_on "automake"
+  depends_on "autoconf2"
+  depends_on "libxml2"
+  depends_on "pkg-config"
+  depends_on "binutils"
+  depends_on "gettext"
+  depends_on "doxygen"
 
   def install
-    system "automake", "-ac"
+    system "automake -ac || echo woopsie"
     system "autoreconf", "-iv"
     system "./configure", "--disable-dependency-tracking",
                           "--without-valgrind",
