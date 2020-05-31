@@ -39,10 +39,11 @@ class Novaprova < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "all"
+    system "make", "V=1", "check"
     system "make", "install"
   end
 
   test do
-    system "make", "V=1", "check"
+    system "true"
   end
 end
