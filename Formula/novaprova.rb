@@ -37,8 +37,8 @@ class Novaprova < Formula
     system "./configure", "--without-valgrind",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system({"HOMEBREW_OPTFLAGS" => "-g -O0"}, "make", "AR=/usr/bin/ar", "all")
-    system({"HOMEBREW_OPTFLAGS" => "-g -O0"}, "make", "V=1", "check")
+    system({ "HOMEBREW_OPTFLAGS" => "-g -O0" }, "make", "AR=/usr/bin/ar", "all")
+    system({ "HOMEBREW_OPTFLAGS" => "-g -O0" }, "make", "V=1", "check")
     system "make", "install"
   end
 
