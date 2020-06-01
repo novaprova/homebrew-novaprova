@@ -32,13 +32,14 @@ class Novaprova < Formula
   uses_from_macos "zlib"
 
   def install
+    ENV["HOMEBREW_OPTFLAGS"] = "-g -O0"
     system "automake -ac || echo woopsie"
     system "autoreconf", "-iv"
     system "./configure", "--without-valgrind",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system({ "HOMEBREW_OPTFLAGS" => "-g -O0" }, ["make", "AR=/usr/bin/ar", "all"])
-    system({ "HOMEBREW_OPTFLAGS" => "-g -O0" }, ["make", "V=1", "check"])
+    system "make", "AR=/usr/bin/ar", "all"
+    system "make", "V=1", "check"
     system "make", "install"
   end
 
