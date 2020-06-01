@@ -34,11 +34,10 @@ class Novaprova < Formula
   def install
     system "automake -ac || echo woopsie"
     system "autoreconf", "-iv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--without-valgrind",
+    system "./configure", "--without-valgrind",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system "make", "all"
+    system "make", "AR=/usr/bin/ar", "all"
     system "make", "V=1", "check"
     system "make", "install"
   end
