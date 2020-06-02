@@ -33,6 +33,7 @@ class Novaprova < Formula
 
   def install
     ENV["HOMEBREW_OPTFLAGS"] = "-g -O0"
+    ENV.deparallelize
     system "automake -ac || echo woopsie"
     system "autoreconf", "-iv"
     system "./configure", "--without-valgrind",
