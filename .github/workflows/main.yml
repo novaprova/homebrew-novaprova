@@ -22,4 +22,5 @@ jobs:
           ln -s "$PWD" "$HOMEBREW_TAP_DIR"
           BINTRAY_ROOT=https://dl.bintray.com/novaprova/bottles-novaprova
           BINTRAY_ORG=novaprova
+          brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG
           brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG --ci-upload
