@@ -23,4 +23,7 @@ jobs:
           BINTRAY_ROOT=https://dl.bintray.com/novaprova/bottles-novaprova
           BINTRAY_ORG=novaprova
           brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG
-          brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG --ci-upload
+          pwd
+          find . -type f -name "novaprova*.json"
+          find . -type f -name "novaprova*bottle.tar*"
+          # brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG --ci-upload
