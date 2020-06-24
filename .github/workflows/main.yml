@@ -10,6 +10,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: Run brew test-bot
+        env:
+          HOMEBREW_BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
+          HOMEBREW_BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
         run: |
           set -e
           brew update
@@ -17,4 +20,6 @@ jobs:
           mkdir -p "$HOMEBREW_TAP_DIR"
           rm -rf "$HOMEBREW_TAP_DIR"
           ln -s "$PWD" "$HOMEBREW_TAP_DIR"
-          brew test-bot
+          BINTRAY_ROOT=https://dl.bintray.com/novaprova/bottles-novaprova
+          BINTRAY_ORG=novaprova
+          brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG --ci-upload
