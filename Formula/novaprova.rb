@@ -40,7 +40,7 @@ class Novaprova < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "AR=/usr/bin/ar", "all"
-    system "make", "V=1", "check"
+    system "make", "AR=/usr/bin/ar", "V=1", "check"
     system "make", "install"
   end
 
