@@ -22,8 +22,12 @@ jobs:
           ln -s "$PWD" "$HOMEBREW_TAP_DIR"
           BINTRAY_ROOT=https://dl.bintray.com/novaprova/bottles-novaprova
           BINTRAY_ORG=novaprova
-          brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG
+          HB_ORG=novaprova
+          HB_REPO=novaprova
+          HB_PACKAGE=novaprova
+          brew test-bot --root-url=$BINTRAY_ROOT
+          --bintray-org=$BINTRAY_ORG --tap=$HB_ORG/$HB_REPO $HB_ORG/$HB_REPO/$HB_PACKAGE
           pwd
-          find . -type f -name "novaprova*.json"
-          find . -type f -name "novaprova*bottle.tar*"
+          find .. -type f -name "$HB_PACKAGE*.json"
+          find .. -type f -name "$HB_PACKAGE*bottle.tar*"
           # brew test-bot --root-url=$BINTRAY_ROOT --bintray-org=$BINTRAY_ORG --ci-upload
