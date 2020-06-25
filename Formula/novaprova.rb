@@ -19,7 +19,7 @@ class Novaprova < Formula
   desc "The new generation unit test framework for C"
   homepage "http://www.novaprova.org/"
   url "https://github.com/novaprova/novaprova/archive/1.5rc1.tar.gz"
-  sha256 "6394059ea356f47233a5f14aee64e2f76f460bf3be73e9d8376b75c3fee8fe08"
+  sha256 "c3bcb2447f983a01c55c1b4fac79789bba8410dbe0b24381f7ca61d0238c482d"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -38,9 +38,11 @@ class Novaprova < Formula
     system "autoreconf", "-iv"
     system "./configure", "--without-valgrind",
                           "--prefix=#{prefix}",
-                          "--mandir=#{man}"
-    system "make", "AR=/usr/bin/ar", "RANLIB=/usr/bin/ranlib", "all"
-    system "make", "AR=/usr/bin/ar", "RANLIB=/usr/bin/ranlib", "V=1", "check"
+                          "--mandir=#{man}",
+                          "--with-ar=/usr/bin/ar",
+                          "--with-ranlib=/usr/bin/ranlib"
+    system "make", "all"
+    system "make", "V=1", "check"
     system "make", "install"
   end
 
