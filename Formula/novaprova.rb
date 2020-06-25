@@ -19,7 +19,7 @@ class Novaprova < Formula
   desc "The new generation unit test framework for C"
   homepage "http://www.novaprova.org/"
   url "https://github.com/novaprova/novaprova/archive/1.5rc1.tar.gz"
-  sha256 "c3bcb2447f983a01c55c1b4fac79789bba8410dbe0b24381f7ca61d0238c482d"
+  sha256 "462540dfc9c23feea72b710921e94b86ae897b736501b3d2c4597f0e8afcc1a9"
 
   depends_on "autoconf"
   depends_on "automake"
@@ -36,6 +36,10 @@ class Novaprova < Formula
     ENV.deparallelize
     system "automake -ac || echo woopsie"
     system "autoreconf", "-iv"
+    # The Homebrew binutils package includes broken
+    # binaries for ar and ranlib which produce lib.a
+    # files which cannot be linked from.  As a workaround
+    # we force using the working Apple-provided binaries.
     system "./configure", "--without-valgrind",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
