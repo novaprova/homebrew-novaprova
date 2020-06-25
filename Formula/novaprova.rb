@@ -39,8 +39,8 @@ class Novaprova < Formula
     system "./configure", "--without-valgrind",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system "make", "AR=/usr/bin/ar", "all"
-    system "make", "AR=/usr/bin/ar", "V=1", "check"
+    system "make", "AR=/usr/bin/ar", "RANLIB=/usr/bin/ranlib", "all"
+    system "make", "AR=/usr/bin/ar", "RANLIB=/usr/bin/ranlib", "V=1", "check"
     system "make", "install"
   end
 
