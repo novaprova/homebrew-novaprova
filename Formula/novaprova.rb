@@ -19,7 +19,7 @@ class Novaprova < Formula
   desc "The new generation unit test framework for C"
   homepage "http://www.novaprova.org/"
   url "https://github.com/novaprova/novaprova/archive/1.5rc1.tar.gz"
-  sha256 "2e3aa13cd3e099b142a553198aac6ce8dcbbc84599ee52a3e8a93b15cff85873"
+  sha256 "f320a1440c66ce45f526114164790b41bb6eaff7a456b267f49c7f5aacdd50ed"
 
   depends_on "autoconf"
   depends_on "automake"
