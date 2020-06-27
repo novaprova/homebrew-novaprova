@@ -46,7 +46,7 @@ def main():
                     if len(fields) == 2 and fields[0] == "url":
                         url = fields[1].lstrip("\"").rstrip("\"")
                         url = increment_rclevel_in_url(url)
-                        new_line = re.sub(r'"[^"]+"', url, line)
+                        new_line = re.sub(r'"[^"]+"', f"\"{url}\"", line)
                     elif len(fields) == 2 and fields[0] in hash_algorithms:
                         if url is None:
                             _log.error("Please put the \"%s\" keyword after \"url\"", fields[0])
