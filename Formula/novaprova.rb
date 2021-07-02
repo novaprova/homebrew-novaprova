@@ -21,10 +21,10 @@ class Novaprova < Formula
   url "https://github.com/novaprova/novaprova/archive/1.5rc2.tar.gz"
   sha256 "8ff83490bb0f9fc4a4ec22c2e1bb7469381523614bb3272cd51f560f050f18c1"
 
-  bottle do
-    root_url "https://dl.bintray.com/novaprova/bottles-novaprova"
-    sha256 "2232356aab9c3754144d99f79058976624963b439cd8c29c8cbe227bfe30d9e3" => :catalina
-  end
+#  bottle do
+#    root_url "https://dl.bintray.com/novaprova/bottles-novaprova"
+#    sha256 "2232356aab9c3754144d99f79058976624963b439cd8c29c8cbe227bfe30d9e3" => :catalina
+#  end
 
   depends_on "autoconf"
   depends_on "automake"
